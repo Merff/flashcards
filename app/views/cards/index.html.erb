@@ -4,6 +4,7 @@
 	<tr>
 		<th>Original  </th>
 		<th>Translated</th>
+		<th>Review    </th>
 	</tr>
 
 	<% @cards.each do |card| %>
@@ -11,6 +12,7 @@
 		<tr>
 			<td><%= card.original   %></td>
 			<td><%= card.translated %></td>
+			<td><%= card.review     %></td>
 		</tr>
 	<% end %>
 
