@@ -1,0 +1,17 @@
+<h1>Listing cards</h1>
+
+<table>
+	<tr>
+		<th>Original  </th>
+		<th>Translated</th>
+	</tr>
+
+	<% @cards.each do |card| %>
+
+		<tr>
+			<td><%= card.original   %></td>
+			<td><%= card.translated %></td>
+		</tr>
+	<% end %>
+
+</table>
