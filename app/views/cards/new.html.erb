@@ -1,0 +1,7 @@
+<h1>Новая карточка</h1>
+
+<%= simple_form_for :card, url: cards_path do |f| %>
+  <%= f.input :original %>
+  <%= f.input :translated %>
+  <%= f.button :submit %>
+<% end %>
