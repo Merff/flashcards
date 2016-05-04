@@ -17,27 +17,17 @@ class CardsController < ApplicationController
 
 	def create
 		@card = Card.new(card_params)
-
-		if @card.original.downcase != @card.translated.downcase
-			@card.save ? (redirect_to @card) : (render 'new')
-		else
-			render 'new'
-		end
+		@card.save ? (redirect_to @card) : (render 'new')
 	end
 
 	def update
 		@card = Card.find(params[:id])
-		if @card.original.downcase != @card.translated.downcase
 		@card.update(card_params) ? (redirect_to @card) : (render 'edit')
-		else
-			render 'new'
-		end
 	end
 
 	def destroy
 		@card = Card.find(params[:id])
 		@card.destroy
-
 		redirect_to cards_path
 	end
 
