@@ -3,7 +3,6 @@
 
 <head>
   <title>Флэшкарточкер</title>
-  <link rel="stylesheet" href="application.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +14,7 @@
     <header class="clearfix">
       <h1>Флэшкарточкер</h1>
       <ul class="navigation-links">
-        <li><%= link_to 'Все карточки', controller: 'cards'%></li>
+        <li><%= link_to 'Все карточки',      cards_path     %></li>
         <li><%= link_to 'Добавить карточку', new_card_path %></li>
       </ul>
     </header>
