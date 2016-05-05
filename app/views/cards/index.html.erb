@@ -12,8 +12,8 @@
 			<td><%= card.original   %></td>
 			<td><%= card.translated %></td>
 			<td><%= card.review     %></td>
-			<td><%= link_to 'изменить', edit_card_path(card) %></td>
-			<td><%= link_to 'удалить',  card_path(card),
+			<td><%= link_to 'Редактировать', edit_card_path(card) %></td>
+			<td><%= link_to 'Удалить',  card_path(card),
 							method: :delete %></td>
 		</tr>
 	<% end %>
