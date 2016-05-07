@@ -1,0 +1,11 @@
+<%= $card.translated %>
+
+<%= form_tag("/search", method: "post") do %>
+	<%= label_tag "перевод:" %>
+  <%= text_field_tag  :answer %>
+  <%= submit_tag("Проверить") %>
+<% end %>
+
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end %>

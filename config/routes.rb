@@ -1,8 +1,10 @@
 Flashcards::Application.routes.draw do
+  root 'cards#home'
+  post "search" => "cards#inspection"
 
   resources :cards
 
-  root 'welcom#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
