@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 	def home
-		$card = Card.where("review <= ?", Date.today.next_day(3)).order('RANDOM()').limit(1).take
+		$card = Card.where("review <= ?", Date.today.order('RANDOM()').limit(1).take
 	end
 
 	def inspection
