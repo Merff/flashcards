@@ -1,18 +1,16 @@
 class CardsController < ApplicationController
 	def home
-		$card = Card.where("review <= ?", Date.today.order('RANDOM()').limit(1).take
+		@card = Card.random_card
 	end
 
 	def inspection
-		@card = $card
-		if params[:answer] == @card.original
-			@card.update_attributes(review: Date.today.next_day(3))
+		@card = Card.find(params[:card_id])
+		if @card.update_card(params.permit(:answer))
 			redirect_to :back, notice: "Верный ответ!"
 		else
 			redirect_to :back, notice: "Неверный ответ("
 		end
 	end
-
 	def index
 		@cards = Card.all
 	end
