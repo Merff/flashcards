@@ -1,6 +1,6 @@
 <%= @card.translated %>
 
-<%= form_tag("/search", method: "post") do %>
+<%= form_tag search_path do %>
 	<%= hidden_field_tag(:card_id, @card.id) %>
 	<%= label_tag "перевод:" %>
   <%= text_field_tag  :answer %>
