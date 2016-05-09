@@ -1,6 +1,6 @@
 Flashcards::Application.routes.draw do
   root 'cards#home'
-  post "search" => "cards#check_translation"
+  post "search" => "cards#check"
 
   resources :cards
 
