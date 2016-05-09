@@ -1,4 +1,16 @@
 class CardsController < ApplicationController
+	def home
+		@card = Card.random_card
+	end
+
+	def check
+		@card = Card.find(params[:card_id])
+		if @card.check_translation(params[:answer])
+			redirect_to :back, notice: "Верный ответ!"
+		else
+			redirect_to :back, notice: "Неверный ответ("
+		end
+	end
 	def index
 		@cards = Card.all
 	end
