@@ -3,7 +3,7 @@ class CardsController < ApplicationController
 		@card = Card.random_card
 	end
 
-	def inspection
+	def check_translation
 		@card = Card.find(params[:card_id])
 		if @card.update_card(params.permit(:answer))
 			redirect_to :back, notice: "Верный ответ!"
