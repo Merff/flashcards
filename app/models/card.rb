@@ -1,6 +1,6 @@
 class Card < ActiveRecord::Base
 	validates :original, :translated, presence: true
-	validate :valid_combo 
+	validate :valid_combo
 	before_create :create_date_review
 	
 	def valid_combo
@@ -16,7 +16,7 @@ class Card < ActiveRecord::Base
 	scope :random_card, -> {where("review <= ?", Date.today).order('RANDOM()').limit(1).take}
 
 	def check_translation(answer)
-		if answer == self.original
+		if answer.upcase == self.original.upcase
 			self.update_attributes(review: Date.today.next_day(3))
 		end
 	end
