@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
   validates :original, :translated, presence: true
   validate :valid_combo
-  before_create :create_date_review
+  before_create :set_review
 
   def valid_combo
     if original.downcase == translated.downcase
@@ -9,7 +9,7 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def create_date_review
+  def set_review
     review = Date.today.next_day(3)
   end
 

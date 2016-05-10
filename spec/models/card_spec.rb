@@ -4,7 +4,7 @@ describe Card do
 
   it "when create, date review must be +3 days" do
     card = Card.create(original: "space", translated: "космос")
-    expect(card.create_date_review).to eq(Date.today.next_day(3))
+    expect(card.set_review).to eq(Date.today.next_day(3))
   end
 
   it "answer right" do
