@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Check answer' do
+describe 'check answer' do
 
   it "true answer" do
     card = create(:card, original: "star", translated: "звезда")
