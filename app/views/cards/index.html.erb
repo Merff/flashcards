@@ -1,20 +1,20 @@
 <h1>Список карточек</h1>
 
 <table>
-	<tr>
-		<th>Original  </th>
-		<th>Translated</th>
-		<th>Review    </th>
-	</tr>
+  <tr>
+    <th>Original  </th>
+    <th>Translated</th>
+    <th>Review    </th>
+  </tr>
 
-	<% @cards.each do |card| %>
-		<tr>
-			<td><%= card.original   %></td>
-			<td><%= card.translated %></td>
-			<td><%= card.review     %></td>
-			<td><%= link_to 'Редактировать', edit_card_path(card) %></td>
-			<td><%= link_to 'Удалить',  card_path(card),
-							method: :delete %></td>
-		</tr>
-	<% end %>
+  <% @cards.each do |card| %>
+    <tr>
+      <td><%= card.original   %></td>
+      <td><%= card.translated %></td>
+      <td><%= card.review     %></td>
+      <td><%= link_to 'Редактировать', edit_card_path(card) %></td>
+      <td><%= link_to 'Удалить',  card_path(card),
+              method: :delete %></td>
+    </tr>
+  <% end %>
 </table>
