@@ -14,7 +14,7 @@ describe Card do
   end
 
   it "random card in home page" do
-    Card.create(original: "black", translated: "черный", review: "2016-05-09")
+    Card.create(original: "black", translated: "черный", review: Date.today)
     expect(Card.random_card.nil?).to be false
   end
 end
