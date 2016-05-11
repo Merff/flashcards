@@ -13,7 +13,7 @@ class Card < ActiveRecord::Base
     review = Date.today.next_day(3)
   end
 
-  scope :random_card, -> {where("review <= ?", Date.today).order('RANDOM()').limit(1).take}
+  scope :random_card, -> {where("review <= ?", Date.today).order('RANDOM()').take}
 
   def check_translation(answer)
     if answer.downcase == original.downcase
