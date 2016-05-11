@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'check answer' do
   before(:each) do
-    card = Card.create(original: "star", translated: "звезда").update_attributes(review: Date.today)
+    @card = create(:card, original: "star", translated: "звезда")
   end
 
   it "true answer" do
-    
+    @card.update_attributes(review: Date.today)
     visit root_path
     fill_in :answer, with: "star"
     click_button "Проверить"
