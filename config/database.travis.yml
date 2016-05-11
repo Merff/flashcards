@@ -1,0 +1,6 @@
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: flashcards_test
+  min_messages: ERROR
