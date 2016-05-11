@@ -1,4 +1,6 @@
 class Card < ActiveRecord::Base
+  belongs_to :user
+
   validates :original, :translated, presence: true
   validate :valid_combo
   before_create :set_review
