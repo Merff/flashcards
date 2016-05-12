@@ -1,6 +1,5 @@
 Flashcards::Application.routes.draw do
-  #root 'cards#home'
-  root :to => 'users#index'
+  root 'cards#home'
   post "search" => "cards#check"
 
   resources :users

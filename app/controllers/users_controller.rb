@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: [:new, :create, :show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       if @user.save
-        redirect_to(:users, notice: 'User was successfully created')
+        auto_login(@user)
+        redirect_to @user, notice: 'User was successfully created'
       else
         render action: 'new' 
       end
