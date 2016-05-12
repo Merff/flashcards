@@ -2,6 +2,7 @@ Flashcards::Application.routes.draw do
   root 'cards#home'
   post "search" => "cards#check"
 
+  #resources :users
   resources :cards
 
   
