@@ -1,9 +1,14 @@
 Flashcards::Application.routes.draw do
-  root 'cards#home'
+  #root 'cards#home'
+  root :to => 'users#index'
   post "search" => "cards#check"
 
-  #resources :users
+  resources :users
   resources :cards
+  resources :user_sessions
+
+  get  'login'  => 'user_sessions#new',     :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
 
   
 
