@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
   belongs_to :user
 
-  validates :original, :translated, presence: true
+  validates :original, :translated, :user_id, presence: true
   validate :valid_combo
   before_create :set_review
 
@@ -12,7 +12,7 @@ class Card < ActiveRecord::Base
   end
 
   def set_review
-    review = Date.today.next_day(3)
+    self.review = Date.today.next_day(3)
   end
 
   scope :overdue, -> { where("review <= ?", Date.today) }

@@ -16,6 +16,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Выход!')
+    redirect_to new_user_path, notice: 'Выход выполнен!'
   end
 end
