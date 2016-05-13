@@ -27,6 +27,7 @@
       <% else %>
         <%= link_to "Регистрация", new_user_path %> 
         <%= link_to "Войти", :login %>
+        <%= link_to 'Login with Github', auth_at_provider_path(:provider => :github) %>
       <% end %>
     </div>
     <div>

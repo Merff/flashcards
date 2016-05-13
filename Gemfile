@@ -38,6 +38,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara', '~> 2.5'
   gem 'byebug'
+  gem 'dotenv-rails'
 end
 
 # Use ActiveModel has_secure_password
