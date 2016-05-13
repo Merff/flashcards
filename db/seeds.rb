@@ -3,8 +3,9 @@ page = Nokogiri::HTML(open("http://wordsteps.com/vocabulary/words/121275/%D0%A4%
 
 page.css("tr.wrow").each do |tr|
   Card.create(
-    original: tr.css("div.word").text,
+    original:   tr.css("div.word").text,
     translated: tr.css("div.trans").text,
-    review: (DateTime.now.to_date + 3)
+    review:     (DateTime.now.to_date + 3),
+    user_id:    User.take(1)
     )
 end

@@ -2,8 +2,16 @@ Flashcards::Application.routes.draw do
   root 'cards#home'
   post "search" => "cards#check"
 
-  #resources :users
+  resources :users
   resources :cards
+  resources :user_sessions
+
+  get  'login'  => 'user_sessions#new',     :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   
 

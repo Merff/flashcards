@@ -1,0 +1,22 @@
+<h1>Список пользователей</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+  </tr>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to 'просмотреть',   user                 %></td>
+        <td><%= link_to 'редактировать', edit_user_path(user) %></td>
+        <td><%= link_to 'удалить', user, method: :delete, data:
+             { confirm: 'Уверены?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый пользователь', new_user_path %>

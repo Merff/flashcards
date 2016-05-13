@@ -5,6 +5,7 @@ gem 'rails', '4.2.6'
 
 gem 'pg'
 gem 'simple_form'
+gem 'sorcery'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara', '~> 2.5'
   gem 'byebug'
+  gem 'dotenv-rails'
 end
 
 # Use ActiveModel has_secure_password
