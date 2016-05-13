@@ -1,13 +1,17 @@
 require 'rails_helper'
 
-describe 'Cards answer' do
+describe 'Cards' do
 
   let!(:user) { create(:user) }
 
   before(:each) do
     login("test", "user")
-    @card = user.cards.create(:card, original: "star", translated: "звезда")
+    @card = create(:card, original: "star", translated: "звезда", user_id: user.id)
   end
+
+  it "page after login" do
+    expect(page).to have_content "Успешный вход!"
+  end 
 
   context "check answer" do
     before(:each) do

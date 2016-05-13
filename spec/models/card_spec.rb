@@ -2,25 +2,23 @@ require 'rails_helper'
 
 describe Card do 
 
-  let(:user) { create(:user) }
-
+  let!(:user) { create(:user) }
+  
   before(:each) do
-    login("test", "user")
+    @card = user.cards.create(original: "space", translated: "космос")
   end
 
   it "when create, date review must be +3 days" do
-    user.cards.create(original: "space", translated: "космос")
-    expect(card.set_review).to eq(Date.today.next_day(3))
+    expect(@card.set_review).to eq(Date.today.next_day(3))
   end
 
-  it "answer right" do
-    user.cards.create(original: "war", translated: "война")
-    expect(card.check_translation("war")).to be true
-    expect(card.check_translation("star")).to be false
+  it "answer right/false" do
+    expect(@card.check_translation("space")).to be true
+    expect(@card.check_translation("star")).to be false
   end
 
   it "random card in home page" do
-    user.cards.create(original: "black", translated: "черный", review: Date.today)
+    user.cards.create(original: "space", translated: "космос").update_attributes(review: Date.today)
     expect(user.cards.random_card.nil?).to be false
   end
 end
