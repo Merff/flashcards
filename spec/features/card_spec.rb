@@ -2,11 +2,10 @@ require 'rails_helper'
 
 describe 'Cards' do
 
-  let!(:user) { create(:user) }
+  let!(:card) { create(:card, original: "star", translated: "звезда") }
 
   before(:each) do
     login("test", "user")
-    @card = create(:card, original: "star", translated: "звезда", user_id: user.id)
   end
 
   it "page after login" do
@@ -15,7 +14,7 @@ describe 'Cards' do
 
   context "check answer" do
     before(:each) do
-      @card.update_attributes(review: Date.today)
+      card.update_attributes(review: Date.today)
     end
 
     it "open train page and post true answer" do
