@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Cards' do
+describe Card do
 
   let!(:card) { create(:card, original: "star", translated: "звезда") }
 

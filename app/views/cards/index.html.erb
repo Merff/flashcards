@@ -5,6 +5,7 @@
     <th>Original  </th>
     <th>Translated</th>
     <th>Review    </th>
+    <th>Avatar    </th>
   </tr>
 
   <% @cards.each do |card| %>
@@ -12,6 +13,7 @@
       <td><%= card.original   %></td>
       <td><%= card.translated %></td>
       <td><%= card.review     %></td>
+      <td><%= image_tag card.avatar_url(:thumb) %></td>
       <td><%= link_to 'Редактировать', edit_card_path(card) %></td>
       <td><%= link_to 'Удалить',  card_path(card),
               method: :delete %></td>
