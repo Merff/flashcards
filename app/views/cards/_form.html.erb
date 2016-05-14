@@ -1,5 +1,8 @@
 <%= simple_form_for @card do |f| %>
   <%= f.input :original,   label: 'Оригинал' %>
   <%= f.input :translated, label: 'Перевод' %>
-  <%= f.button :submit    %>
+  <%= image_tag @card.avatar_url(:thumb) if @card.avatar? %>
+  <%= f.input :avatar %>
+  <%= f.input :remove_avatar, as: :boolean if @card.avatar? %>
+  <%= f.button :submit %>
 <% end %>

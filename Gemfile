@@ -6,6 +6,9 @@ gem 'rails', '4.2.6'
 gem 'pg'
 gem 'simple_form'
 gem 'sorcery'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
