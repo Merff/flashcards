@@ -48,6 +48,6 @@ class CardsController < ApplicationController
     end
 
     def card_params
-      params.require(:card).permit(:original, :translated, :review, :avatar)
+      params.require(:card).permit(:original, :translated, :review, :avatar, :remove_avatar)
     end
 end
