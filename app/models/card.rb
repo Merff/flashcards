@@ -1,8 +1,9 @@
 class Card < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   belongs_to :user
+  belongs_to :deck
 
-  validates :original, :translated, :user_id, presence: true
+  validates :original, :translated, :user_id, :deck_id, presence: true
   validate :valid_combo
   before_create :set_review
 
