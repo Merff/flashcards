@@ -1,5 +1,11 @@
 class DecksController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :do_current]
+
+  def train_deck
+    deck = current_user.decks.find_by(id: params[:deck_id])
+    current_user.update_attributes(deck_id: deck.id)
+    redirect_to root_path
+  end
 
   def index
     @decks = current_user.decks

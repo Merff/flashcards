@@ -2,7 +2,11 @@ class CardsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def home
-    @card = current_user.cards.random_card
+    @card = if current_user.deck_id
+      current_user.cards.where(deck_id: current_user.deck_id).random_card
+    else
+      current_user.cards.random_card
+    end
   end
 
   def check
