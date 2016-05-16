@@ -4,7 +4,7 @@ require 'rails_helper'
 describe AvatarUploader do
   include CarrierWave::Test::Matchers
 
-  let(:card) { create(:card) }
+  let!(:card) { create(:card) }
   let(:uploader) { AvatarUploader.new(card, :avatar) }
 
   before do

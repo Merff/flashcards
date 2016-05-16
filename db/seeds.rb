@@ -7,5 +7,6 @@ page.css("tr.wrow").each do |tr|
     translated: tr.css("div.trans").text,
     review:     (DateTime.now.to_date + 3),
     user_id:    User.take(1)
+    deck_id:
     )
 end

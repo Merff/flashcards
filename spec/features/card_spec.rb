@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Card do
 
-  let!(:card) { create(:card, original: "star", translated: "звезда") }
+  let!(:card) { create(:card) }
 
   before(:each) do
     login("test", "user")
