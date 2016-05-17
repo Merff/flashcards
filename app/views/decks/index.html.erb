@@ -1,0 +1,22 @@
+<h1>Список колод</h1>
+
+<table>
+  <tr>
+    <th>Имя колоды</th>
+  </tr>
+
+  <% @decks.each do |deck| %>
+    <tr>
+      <td><%= deck.name   %></td>
+      <td><%= link_to 'Редактировать', edit_deck_path(deck) %></td>
+      <td><%= link_to 'Удалить',  deck_path(deck),
+              method: :delete %></td>
+      <td><%= form_tag current_deck_deck_path(deck) do %>
+          <%= hidden_field_tag(:deck_id, deck.id)    %>
+          <%= submit_tag "Сделать текущей"           %>
+          <% end %>
+      </td>
+    </tr>
+
+  <% end %>
+</table>

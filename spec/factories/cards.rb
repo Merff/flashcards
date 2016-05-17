@@ -1,9 +1,9 @@
 FactoryGirl.define do
   
   factory :card do
-    original   "original"
-    translated "translated"
-    user       
+    original   "star"
+    translated "звезда"
+    deck
+    user   
   end
-
 end
