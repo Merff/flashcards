@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe Card do
-
-  let!(:card) { create(:card) }
-
+  let!(:user) { create(:user) }
+  let!(:deck) { create(:deck, user_id: user.id) }
+  let!(:card) { create(:card, user_id: user.id, deck_id: deck.id) }
+  
   before(:each) do
     login("test", "user")
   end

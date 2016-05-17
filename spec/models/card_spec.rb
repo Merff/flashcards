@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe Card do 
-
-  let!(:card) { create(:card) }
-
+  let!(:user) { create(:user) }
+  let!(:deck) { create(:deck, user_id: user.id) }
+  let!(:card) { create(:card, user_id: user.id, deck_id: deck.id) }
+  
   it "when create, date review must be +3 days" do
     expect(card.set_review).to eq(Date.today.next_day(3))
   end

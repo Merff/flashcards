@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 describe Deck do
-
-  let!(:deck) { create(:deck) }
+  let!(:user) { create(:user) }
+  let!(:deck) { create(:deck, user_id: user.id) }
+  let!(:card) { create(:card, user_id: user.id, deck_id: deck.id) }
   
   before(:each) do
     login("test", "user")
+    card.update_attributes(review: Date.today)
   end
 
   it "user have deck" do
@@ -21,8 +23,9 @@ describe Deck do
     expect(page).to have_content "Имя колоды Interstellar"
   end
 
-  it "deck can been current" do
+  it "train deck's card after deck has been current " do
     click_link "Все колоды"
-    expect(page).to have_button "Сделать текущей"
+    click_button "Сделать текущей"
+    expect(page).to have_content "звезда"
   end
 end

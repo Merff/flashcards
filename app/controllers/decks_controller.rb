@@ -1,7 +1,7 @@
 class DecksController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :do_current]
+  before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
-  def train_deck
+  def current_deck
     deck = current_user.decks.find_by(id: params[:deck_id])
     current_user.update_attributes(deck_id: deck.id)
     redirect_to root_path
@@ -36,9 +36,9 @@ class DecksController < ApplicationController
   end
 
   private
-    def set_user
+    def set_deck
       @deck = current_user.decks.find_by(id: params[:id])
-      redirect_to decks_path if @deck.nil?
+      redirect_to decks_path unless @deck
     end
 
     def deck_params

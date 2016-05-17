@@ -6,7 +6,7 @@ Flashcards::Application.routes.draw do
   resources :cards
   resources :user_sessions
   resources :decks do
-    post 'train_deck', on: :member
+    post 'current_deck', on: :member
   end
 
   get  'login'  => 'user_sessions#new',     :as => :login
