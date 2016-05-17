@@ -14,7 +14,8 @@
       <td><%= form_tag current_deck_deck_path(deck) do %>
           <%= hidden_field_tag(:deck_id, deck.id)    %>
           <%= submit_tag "Сделать текущей"           %>
-          <% end %></td>
+          <% end %>
+      </td>
     </tr>
 
   <% end %>

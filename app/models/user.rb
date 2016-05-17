@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
   has_many :cards, dependent: :destroy
   has_many :decks, dependent: :destroy
+  #has_one  :current_deck, class_name: "Deck"
 
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
