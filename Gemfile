@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv-rails'
 
 
 # Use SCSS for stylesheets
@@ -41,7 +42,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara', '~> 2.5'
   gem 'byebug'
-  gem 'dotenv-rails'
 end
 
 group :production do
