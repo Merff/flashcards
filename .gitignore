@@ -25,4 +25,4 @@ doc/
 .idea
 .secret
 .byebug_history
-.env
+.env.production
