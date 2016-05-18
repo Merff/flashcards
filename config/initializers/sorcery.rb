@@ -125,7 +125,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.github.key = ENV['AWS_ACCESS_KEY_ID']
   config.github.secret = ENV['AWS_SECRET_ACCESS_KEY']
-  config.github.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=github"
+  config.github.callback_url = Rails.application.secrets.github_callback_url
   config.github.user_info_mapping = {:email => "name"}
   #
   # config.google.key = ""
