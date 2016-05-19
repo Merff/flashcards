@@ -14,7 +14,13 @@ class CardsController < ApplicationController
     if @card.check_translation(params[:answer])
       redirect_to :back, notice: "Верный ответ!"
     else
-      redirect_to :back, notice: "Неверный ответ("
+      if @card.check_levenshtein(params[:answer])
+        redirect_to :back, notice: "#{params[:answer]} - возможно вы опечатались 
+                                    верно было [#{@card.original} - #{@card.translated}]"
+      else
+        redirect_to :back, notice: "#{params[:answer]} - Неверный ответ(!!
+                                    верно было [#{@card.original} - #{@card.translated}]"
+      end                            
     end
   end
   def index

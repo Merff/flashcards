@@ -61,6 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    damerau-levenshtein (1.0.3)
     diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -209,6 +210,7 @@ DEPENDENCIES
   capybara (~> 2.5)
   carrierwave
   coffee-rails (~> 4.0.0)
+  damerau-levenshtein (~> 1.0.3)
   dotenv-rails
   factory_girl_rails (~> 4.0)
   jbuilder (~> 1.2)

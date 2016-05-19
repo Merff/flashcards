@@ -9,6 +9,7 @@ gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'dotenv-rails'
+gem 'damerau-levenshtein', '~> 1.0.3'
 
 
 # Use SCSS for stylesheets

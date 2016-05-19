@@ -29,9 +29,15 @@ class Card < ActiveRecord::Base
         false
       else
         update_attributes(review: DateTime.now + 12.hours, try: 0)
+        false
       end
     end
   end
+
+  def check_levenshtein(answer)
+    DamerauLevenshtein.distance(answer, original) == 1
+  end
+
 
   def set_review
     if true_answers >= 6
