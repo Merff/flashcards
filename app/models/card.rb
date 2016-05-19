@@ -34,16 +34,17 @@ class Card < ActiveRecord::Base
   end
 
   def set_review
-    hash = { 1 => 12.hours, 
-             2 => 3.days, 
-             3 => 7.days, 
-             4 => 14.days, 
-             5 => 30.days }
     if true_answers >= 6
       update_attributes(review: (DateTime.now + 30.days))
     else
-      update_attributes(review: (DateTime.now + hash[true_answers]))
+      update_attributes(review: (DateTime.now + Hash_review[true_answers]))
     end   
   end
+
+  Hash_review = { 1 => 12.hours, 
+                  2 => 3.days, 
+                  3 => 7.days, 
+                  4 => 14.days, 
+                  5 => 30.days }
 
 end
