@@ -15,7 +15,7 @@ describe Card do
 
   context "check answer" do
     before(:each) do
-      card.update_attributes(review: Date.today)
+      card.update_attributes(review: DateTime.now)
     end
 
     it "open train page and post true answer" do

@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
 
   validates :original, :translated, :user_id, :deck_id, presence: true
   validate :valid_combo
-  before_create :set_review
+  before_create review: DateTime.now
 
   def valid_combo
     if original.downcase == translated.downcase
@@ -13,11 +13,7 @@ class Card < ActiveRecord::Base
     end
   end
 
-  def set_review
-    self.review = Date.today.next_day(3)
-  end
-
-  scope :overdue, -> { where("review <= ?", Date.today) }
+  scope :overdue, -> { where("review <= ?", DateTime.now) }
 
   def self.random_card
     overdue.order('RANDOM()').take
@@ -25,9 +21,33 @@ class Card < ActiveRecord::Base
 
   def check_translation(answer)
     if answer.downcase == original.downcase
-      update_attributes(review: Date.today.next_day(3))
-    else
+      update_attributes(true_answers: true_answers+1, try: 0)
+      set_review
+      true
+    elsif (answer.downcase != original.downcase) && (try < 2)
+      update_attributes(try: try+1)
       false
+    else
+      update_attributes(true_answers: 1, try: 0)
+      set_review
     end
   end
+
+  def set_review
+
+    hash = { 0 => 0, 
+             1 => 12.hours, 
+             2 => 3.days, 
+             3 => 7.days, 
+             4 => 14.days, 
+             5 => 30.days }
+    hash.find_all { |tr_ans| 
+              if true_answers == tr_ans[0]
+                update_attributes(review: (DateTime.now + tr_ans[1]))
+              elsif true_answers >= 6
+                update_attributes(review: (DateTime.now + 30.days))
+              end   
+             }
+  end
+
 end

@@ -7,7 +7,7 @@ describe Deck do
   
   before(:each) do
     login("test", "user")
-    card.update_attributes(review: Date.today)
+    card.update_attributes(review: DateTime.now)
   end
 
   it "user have deck" do

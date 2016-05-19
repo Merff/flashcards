@@ -1,7 +1,7 @@
 <%= simple_form_for @card do |f| %>
   <p><%= f.input :original,   label: 'Оригинал' %></p>
   <p><%= f.input :translated, label: 'Перевод' %></p>
-  <p><%= f.select :deck_id, current_user.decks.map{ |d| [d.name, d.id] }, prompt: 'Колода' %></p>
+  <p><%= f.select :deck_id, current_user.decks.map{ |d| [d.name, d.id] }, prompt: 'Выберите колоду' %></p>
   <p><%= image_tag @card.avatar_url(:thumb) if @card.avatar? %></p>
   <p><%= f.input :avatar, label: 'Аватар' %></p>
   <%= f.input :remove_avatar, as: :boolean if @card.avatar? %>
