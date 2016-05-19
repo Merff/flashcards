@@ -2,6 +2,8 @@
 
 <table>
   <tr>
+    <th>true_answers</th>
+    <th>try</th>
     <th>Original  </th>
     <th>Translated</th>
     <th>Review    </th>
@@ -11,6 +13,8 @@
 
   <% @cards.each do |card| %>
     <tr>
+      <td><%= card.true_answers   %></td>
+      <td><%= card.try   %></td>      
       <td><%= card.original   %></td>
       <td><%= card.translated %></td>
       <td><%= card.review     %></td>
