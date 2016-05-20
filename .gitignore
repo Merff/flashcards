@@ -26,4 +26,3 @@ doc/
 .secret
 .byebug_history
 .env
-secrets.yml
