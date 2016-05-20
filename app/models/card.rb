@@ -40,10 +40,12 @@ class Card < ActiveRecord::Base
   end
   
   def set_review
+    update_attributes(review: DateTime.now + 
     if true_answers >= 6
-      update_attributes(review: (DateTime.now + 1.month))
+      1.month
     else
-      update_attributes(review: (DateTime.now + PERIODICITY[true_answers]))
-    end   
+      PERIODICITY[true_answers]
+    end
+    )
   end
 end
