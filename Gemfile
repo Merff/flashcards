@@ -10,6 +10,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'damerau-levenshtein', '~> 1.0.3'
+gem 'whenever', require: false
 
 
 # Use SCSS for stylesheets
