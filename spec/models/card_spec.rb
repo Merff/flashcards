@@ -25,22 +25,22 @@ describe Card do
 
   it "when have 2 true answers, review after 3 days" do
     2.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 3)
+    expect(card.review).to eq(DateTime.now.to_date + 3.days)
   end
 
-  it "when have 3 true answers, review after 7 days" do
+  it "when have 3 true answers, review after 1 week" do
     3.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 7)
+    expect(card.review).to eq(DateTime.now.to_date + 1.week)
   end
 
-  it "when have 4 true answers, review after 14 days" do
+  it "when have 4 true answers, review after 2 weeks" do
     4.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 14)
+    expect(card.review).to eq(DateTime.now.to_date + 2.week)
   end
 
-  it "when have 5 true answers, review after 30 days" do
+  it "when have 5 true answers, review after 1 month" do
     5.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 30)
+    expect(card.review).to eq(DateTime.now.to_date + 1.month)
   end
 
   it "when have 1 false answer, review not changes" do

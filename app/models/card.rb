@@ -1,4 +1,5 @@
 class Card < ActiveRecord::Base
+  PERIODICITY = [-1.hour, 12.hour, 3.day, 1.week, 2.week, 1.month]
   mount_uploader :avatar, AvatarUploader
   belongs_to :user
   belongs_to :deck
@@ -29,21 +30,22 @@ class Card < ActiveRecord::Base
         false
       else
         update_attributes(review: DateTime.now + 12.hours, try: 0)
+        false
       end
     end
   end
 
-  def set_review
-    hash = { 1 => 12.hours, 
-             2 => 3.days, 
-             3 => 7.days, 
-             4 => 14.days, 
-             5 => 30.days }
-    if true_answers >= 6
-      update_attributes(review: (DateTime.now + 30.days))
-    else
-      update_attributes(review: (DateTime.now + hash[true_answers]))
-    end   
+  def check_levenshtein(answer)
+    DamerauLevenshtein.distance(answer, original) == 1
   end
-
+  
+  def set_review
+    update_attributes(review: DateTime.now + 
+    if true_answers >= 6
+      1.month
+    else
+      PERIODICITY[true_answers]
+    end
+    )
+  end
 end

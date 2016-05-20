@@ -31,5 +31,12 @@ describe Card do
       click_button "Проверить"
       expect(page).to have_content "Неверный ответ("
     end
+
+    it "open train page and post answer with typo" do
+      visit root_path
+      fill_in :answer, with: "stra"
+      click_button "Проверить"
+      expect(page).to have_content "возможно вы опечатались"
+    end
   end
 end
