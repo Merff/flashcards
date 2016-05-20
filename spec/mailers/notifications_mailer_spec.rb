@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe NotificationsMailer, type: :mailer do
   let!(:user) { create(:user) }
-  let!(:card) { create(:card, user_id: user.id, deck_id: deck.id) }
-  let!(:deck) { create(:deck, user_id: user.id) }
+  let!(:card) { create(:card, user: user, deck: deck) }
+  let!(:deck) { create(:deck, user: user) }
   let!(:mail) { described_class.card_notice(card).deliver_now }
 
   it 'renders the subject' do

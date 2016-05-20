@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe Deck do
   let!(:user) { create(:user) }
-  let!(:deck) { create(:deck, user_id: user.id) }
-  let!(:card) { create(:card, user_id: user.id, deck_id: deck.id) }
+  let!(:deck) { create(:deck, user: user) }
+  let!(:card) { create(:card, user: user, deck: deck) }
   
   before(:each) do
     login("test", "user")
