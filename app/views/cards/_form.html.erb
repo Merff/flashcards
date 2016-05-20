@@ -1,10 +1,9 @@
 <%= simple_form_for @card do |f| %>
-  <p><%= f.input :original,   label: 'Оригинал' %></p>
-  <p><%= f.input :translated, label: 'Перевод' %></p>
-  <p><%= f.select :deck_id, current_user.decks.map{ |d| [d.name, d.id] }, prompt: 'Выберите колоду' %></p>
+  <p><%= f.input :original,   label: t(:original_text) %></p>
+  <p><%= f.input :translated, label: t(:translated_text) %></p>
+  <p><%= f.association :deck, collection: current_user.decks, label: t(:deck) %></p>
   <p><%= image_tag @card.avatar_url(:thumb) if @card.avatar? %></p>
-  <p><%= f.input :avatar, label: 'Аватар' %></p>
+  <p><%= f.input :avatar, label: t(:avatar) %></p>
   <%= f.input :remove_avatar, as: :boolean if @card.avatar? %>
-  <%= f.input :review,   label: 'Пересмотр карточки' %>
-  <%= f.button :submit %>
+  <%= f.button :submit, t(:create_card) %>
 <% end %>

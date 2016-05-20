@@ -3,10 +3,10 @@
   <%= @card.translated %>
   <%= form_tag search_path do %>
     <%= hidden_field_tag(:card_id, @card.id) %>
-    <%= label_tag       "перевод:"  %>
+    <%= label_tag       t :translated_text  %>
     <%= text_field_tag  :answer     %>
-    <%= submit_tag      "Проверить" %>
-    <%= image_tag @card.avatar_url  %>
-  <% end %>
+    <%= submit_tag   t :check_answer   %>
+    <% end %>
+    <p><%= image_tag @card.avatar_url  %></p>
 <% end %>
 

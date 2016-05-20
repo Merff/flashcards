@@ -11,6 +11,7 @@ gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'damerau-levenshtein', '~> 1.0.3'
 gem 'whenever', require: false
+gem 'http_accept_language'
 
 
 # Use SCSS for stylesheets

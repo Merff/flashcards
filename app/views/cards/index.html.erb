@@ -1,27 +1,23 @@
-<h1>Список карточек</h1>
+<h1><%= t :listing_cards %></h1>
 
 <table>
   <tr>
-    <th>true_answers</th>
-    <th>try</th>
-    <th>Original  </th>
-    <th>Translated</th>
-    <th>Review    </th>
-    <th>Deck      </th>
-    <th>Avatar    </th>
+    <th><%= t :original_text %></th>
+    <th><%= t :translated_text %></th>
+    <th><%= t :date_review %></th>
+    <th><%= t :deck %></th>
+    <th><%= t :avatar %></th>
   </tr>
 
   <% @cards.each do |card| %>
     <tr>
-      <td><%= card.true_answers   %></td>
-      <td><%= card.try   %></td>      
       <td><%= card.original   %></td>
       <td><%= card.translated %></td>
       <td><%= card.review     %></td>
-      <td><%= card.deck_id  %></td>
+      <td><%= card.deck.name  %></td>
       <td><%= image_tag card.avatar_url(:thumb) %></td>
-      <td><%= link_to 'Редактировать', edit_card_path(card) %></td>
-      <td><%= link_to 'Удалить',  card_path(card),
+      <td><%= link_to t(:edit_card), edit_card_path(card) %></td>
+      <td><%= link_to t(:delete_card),  card_path(card),
               method: :delete %></td>
     </tr>
   <% end %>

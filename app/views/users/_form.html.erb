@@ -4,5 +4,6 @@
   <p><%= f.input :email,   label: 'email'%></p>
   <p><%= f.input :password, label: 'Пароль'%></p>
   <p><%= f.input :password_confirmation, label: 'Подтверждение пароля'%></p>
+  <p><%= f.input :locale, collection: ["en", "ru"], as: :radio_buttons %></p>
   <%= f.button :submit %>
 <% end %>

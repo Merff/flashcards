@@ -80,6 +80,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hike (1.2.3)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -216,6 +217,7 @@ DEPENDENCIES
   damerau-levenshtein (~> 1.0.3)
   dotenv-rails
   factory_girl_rails (~> 4.0)
+  http_accept_language
   jbuilder (~> 1.2)
   jquery-rails
   mini_magick
