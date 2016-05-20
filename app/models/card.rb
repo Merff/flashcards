@@ -40,12 +40,17 @@ class Card < ActiveRecord::Base
   end
   
   def set_review
-    update_attributes(review: DateTime.now + 
-    if true_answers >= 6
+    time = if true_answers >= 6
       1.month
     else
       PERIODICITY[true_answers]
     end
-    )
+    update_attributes(review: DateTime.now + time)
+  end
+
+  def notify_train_card
+    overdue.each do |card|
+      NotificationsMailer.card_notice(card).deliver_now
+    end
   end
 end
