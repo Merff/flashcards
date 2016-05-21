@@ -12,14 +12,12 @@ class CardsController < ApplicationController
   def check
     @card = current_user.cards.find_by(id: params[:card_id])
     if @card.check_translation(params[:answer])
-      redirect_to :back, notice: "Верный ответ!"
+      redirect_to :back, notice: (t '.notice1')
     else
       if @card.check_levenshtein(params[:answer])
-        redirect_to :back, notice: "#{params[:answer]} - возможно вы опечатались 
-                                    верно было [#{@card.original} - #{@card.translated}]"
+        redirect_to :back, notice: "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
       else
-        redirect_to :back, notice: "#{params[:answer]} - Неверный ответ(!!
-                                    верно было [#{@card.original} - #{@card.translated}]"
+        redirect_to :back, alert: "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
       end                            
     end
   end

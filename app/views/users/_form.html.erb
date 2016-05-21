@@ -1,9 +1,8 @@
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
-
-  <p><%= f.input :email,   label: 'email'%></p>
-  <p><%= f.input :password, label: 'Пароль'%></p>
-  <p><%= f.input :password_confirmation, label: 'Подтверждение пароля'%></p>
-  <p><%= f.input :locale, collection: ["en", "ru"], as: :radio_buttons %></p>
-  <%= f.button :submit %>
+  <p><%= f.input  :email,    label: t(:email)   %></p>
+  <p><%= f.input  :password, label: t(:password)%></p>
+  <p><%= f.input  :password_confirmation, label: t(:password_confirmation)%></p>
+  <p><%= f.input  :locale, collection: ["en", "ru"], as: :radio_buttons %></p>
+  <p><%= f.button :submit, t(:update_profile) %></p>
 <% end %>

@@ -1,13 +1,61 @@
 en:
-  original_text: 'Original text'
+  original_text:   'Original text'
   translated_text: 'Translated text'
-  deck: 'Deck'
-  avatar: 'Avatar'
-  create_card: 'Create card'
-  edit_card: 'Edit card'
-  check_answer: 'Check'
-  date_review: 'Date review'
-  listing_cards: 'Listing cards'
-  delete_card: 'Delete card'
-  new_card: 'New card'
+  deck:            'Deck'
+  avatar:          'Avatar'
+  create_card:     'Create Card'
+  edit:            'Edit'
+  check_answer:    'Check answer'
+  date_review:     'Date review'
+  listing_cards:   'Listing cards'
+  delete:          'Delete'
+  new_card:        'New Card'
+  deck_name:       'Deck name'
+  listing_decks:   'Listing decks'
+  do_current:      'Do current'
+  new_deck:        'New Deck'
+  flashcards:      'Flashcards'
+  create_deck:     'Create Deck'
+  train:           'Train'
+  edit_profile:    'Edit Profile'
+  update_profile:  'Update'
+  sign_out:        'Sign Out'
+  sign_in:         'Sign in'
+  sign_up:         'Sign up'
+  sign_in_with_Github: 'Sign in with Github'
+  password:        'password'
+  password_confirmation: 'password confirmation'
+  back:            'Back'
+  listing_users:   'Listing users'
+  new_user:        'New User'
+  users:
+    create:
+      notice: 'profile create'
+    update:
+      notice: 'profile update'
+  cards:
+    check:
+      notice1: 'the correct answer!'
+      notice2: 'perhaps you mistyped, the correct answer'
+      alert:   'wrong, the correct answer'
+  user_sessions:
+    create:
+      notice: 'successful sign in'
+      alert:  'unsuccessful, try again'
+    destroy:
+      notice: 'you sign out'
+  oauths:
+    callback:
+      notice: 'Logged in from'
+      alert:  'Failed to login from'
+  aplication:
+    not_authenticated:
+      alert: 'Please login first'
+
+
+
+
+
+
+
 

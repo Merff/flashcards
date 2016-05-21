@@ -2,8 +2,7 @@ class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
   def current_deck
-    deck = current_user.decks.find_by(id: params[:deck_id])
-    current_user.update_attributes(deck_id: deck.id)
+    current_user.update_attributes(deck_id: params[:id])
     redirect_to root_path
   end
 

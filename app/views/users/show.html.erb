@@ -1,7 +1,4 @@
 <p>
-  <strong>Email:</strong>
+  <strong><%= t(:email) %></strong>
   <%= @user.email %>
 </p>
-
-<%= link_to 'редактировать', edit_user_path(@user) %>
-<%= link_to 'назад',       users_path            %>
