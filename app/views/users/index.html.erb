@@ -1,4 +1,4 @@
-<h1><%= t(:listing_users) %></h1>
+<h1><%= t 'listing_users' %></h1>
 
 <table>
   <tr>
@@ -8,8 +8,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to t(:edit), edit_user_path(user) %></td>
-        <td><%= link_to t(:delete), user, method: :delete, data:
+        <td><%= link_to t('edit'), edit_user_path(user) %></td>
+        <td><%= link_to t('delete'), user, method: :delete, data:
              { confirm: 'sure?' } %></td>
       </tr>
     <% end %>

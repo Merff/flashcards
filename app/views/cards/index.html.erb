@@ -2,11 +2,11 @@
 
 <table>
   <tr>
-    <th><%= t :original_text   %></th>
-    <th><%= t :translated_text %></th>
-    <th><%= t :date_review     %></th>
-    <th><%= t :deck            %></th>
-    <th><%= t :avatar          %></th>
+    <th><%= t 'original_text'   %></th>
+    <th><%= t 'translated_text' %></th>
+    <th><%= t 'date_review'    %></th>
+    <th><%= t 'deck'            %></th>
+    <th><%= t 'avatar'          %></th>
   </tr>
 
   <% @cards.each do |card| %>
@@ -16,8 +16,8 @@
       <td><%= card.review     %></td>
       <td><%= card.deck.name  %></td>
       <td><%= image_tag card.avatar_url(:thumb) %></td>
-      <td><%= link_to t(:edit), edit_card_path(card) %></td>
-      <td><%= link_to t(:delete),  card_path(card),
+      <td><%= link_to t('edit'), edit_card_path(card) %></td>
+      <td><%= link_to t('delete'),  card_path(card),
               method: :delete %></td>
     </tr>
   <% end %>

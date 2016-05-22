@@ -1,17 +1,17 @@
-<h1><%= t :listing_decks %></h1>
+<h1><%= t 'listing_decks' %></h1>
 
 <table>
   <tr>
-    <th><%= t :deck_name %></th>
+    <th><%= t 'deck_name' %></th>
   </tr>
 
   <% @decks.each do |deck| %>
     <tr>
       <td><%= deck.name   %></td>
-      <td><%= link_to t(:edit), edit_deck_path(deck) %></td>
-      <td><%= link_to t(:delete),  deck_path(deck),
+      <td><%= link_to t('edit'), edit_deck_path(deck) %></td>
+      <td><%= link_to t('delete'),  deck_path(deck),
               method: :delete %></td>
-      <td><%= link_to t(:do_current), current_deck_deck_path(deck) %></td>   
+      <td><%= link_to t('do_current'), current_deck_deck_path(deck) %></td>   
       </td>
     </tr>
 

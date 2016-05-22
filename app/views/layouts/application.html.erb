@@ -14,24 +14,26 @@
     <header class="clearfix">
       <h1><%= t :flashcards %></h1>
       <ul class="navigation-links">
-        <li><%= link_to t(:listing_cards), cards_path  %></li>
-        <li><%= link_to t(:listing_decks), decks_path  %></li>
-        <li><%= link_to t(:create_card), new_card_path %></li>
-        <li><%= link_to t(:create_deck), new_deck_path %></li>
-        <li><%= link_to t(:train),       root_path     %></li>
-        <%= link_to 'en', root_path(locale: 'en') %>
-        <%= link_to 'ru', root_path(locale: 'ru') %>
+        <li><%= link_to t('listing_cards'), cards_path  %></li>
+        <li><%= link_to t('listing_decks'), decks_path  %></li>
+        <li><%= link_to t('create_card'), new_card_path %></li>
+        <li><%= link_to t('create_deck'), new_deck_path %></li>
+        <li><%= link_to t('train'),       root_path     %></li>
+        <% unless current_user %>
+        <%= link_to 'en', login_path(locale: 'en') %>
+        <%= link_to 'ru', login_path(locale: 'ru') %>
+        <% end %>
       </ul>
     </header>
 
     <div>
       <% if current_user %>
-        <%= link_to t(:edit_profile), edit_user_path(current_user.id) %>
-        <%= link_to t(:sign_out), :logout, method: :post %>
+        <%= link_to t('edit_profile'), edit_user_path(current_user.id) %>
+        <%= link_to t('sign_out'), :logout, method: :post %>
       <% else %>
-        <%= link_to t(:sign_up), new_user_path %> 
-        <%= link_to t(:sign_in), :login %>
-        <%= link_to t(:sign_in_with_Github), auth_at_provider_path(:provider => :github) %>
+        <%= link_to t('sign_up'), new_user_path %> 
+        <%= link_to t('sign_in'), :login %>
+        <%= link_to t('sign_in_with_Github'), auth_at_provider_path(:provider => :github) %>
       <% end %>
     </div>
     <div>

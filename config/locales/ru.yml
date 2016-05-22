@@ -23,31 +23,32 @@ ru:
   sign_in:         'Войти'
   sign_up:         'Зарегистрироваться'
   sign_in_with_Github: 'Войти через Github'
-  password:        'пароль'
-  password_confirmation: 'подтверждение пароля'
+  password:        'Пароль'
+  password_confirmation: 'Подтверждение пароля'
+  locale:          'Язык'
   back:            'Назад'
   listing_users:   'Список пользователей'
   new_user:        'Новый пользователь'
   users:
     create:
-      notice: 'профиль создан'
+      notice: 'Профиль создан'
     update:
-      notice: 'профиль обновлен'
+      notice: 'Профиль обновлен'
   cards:
     check:
-      notice1: 'верный ответ!'
+      notice1: 'Верный ответ!'
       notice2: 'возможно вы опечатались, верно было'
       alert:   'ошибка, верный ответ'
   user_sessions:
     create:
-      notice: 'успешный вход'
-      alert:  'не вышло, попробуйте еще'
+      notice: 'Успешный вход'
+      alert:  'Не вышло, попробуйте еще'
     destroy:
-      notice: 'вы вышли'
+      notice: 'Вы вышли'
   oauths:
     callback:
-      notice: 'вход выполнен через'
-      alert:  'ошибка входа через'
+      notice: 'Вход выполнен через'
+      alert:  'Ошибка входа через'
   aplication:
     not_authenticated:
-      alert: 'войдите или зарегистрируйтесь'
+      alert:  'Войдите или зарегистрируйтесь'

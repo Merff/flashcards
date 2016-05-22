@@ -10,7 +10,7 @@ describe Card do
   end
 
   it "page after login" do
-    expect(page).to have_content 'успешный вход'
+    expect(page).to have_content 'Успешный вход'
   end 
 
   context "check answer" do
@@ -22,7 +22,7 @@ describe Card do
       visit root_path
       fill_in :answer, with: "star"
       click_button 'Проверка'
-      expect(page).to have_content 'верный ответ!'
+      expect(page).to have_content 'Верный ответ!'
     end
 
     it "open train page and post false answer" do

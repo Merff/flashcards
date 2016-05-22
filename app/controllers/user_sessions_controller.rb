@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     if @user = login(params[:email], params[:password])
       redirect_back_or_to(:users, notice: (t '.notice'))
     else
-      flash.now[:alert] = t '.alert'
+      flash.now[:alert] = (t '.alert')
       render action: 'new'
     end
   end
