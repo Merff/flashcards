@@ -12,20 +12,20 @@ describe Deck do
 
   it "user have deck" do
     visit root_path
-    click_link "Все колоды"
+    click_link 'Список колод'
     expect(page).to have_content "kosmos"
   end
 
   it "user can create new deck" do
-    click_link "Добавить колоду"
+    click_link 'Создать колоду'
     fill_in :deck_name, with: "Interstellar"
-    click_button "Create Deck"
-    expect(page).to have_content "Имя колоды Interstellar"
+    click_button 'Создать колоду'
+    expect(page).to have_content "Interstellar"
   end
 
   it "train deck's card after deck has been current " do
-    click_link "Все колоды"
-    click_button "Сделать текущей"
+    click_link 'Список колод'
+    click_link 'Сделать текущей'
     expect(page).to have_content "звезда"
   end
 end

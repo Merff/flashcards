@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         auto_login(@user)
-        redirect_to @user, notice: 'Профиль создан'
+        redirect_to @user, notice: (t '.notice')
       else
         render action: 'new' 
       end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'Профиль обновлен'
+      redirect_to @user, notice: (t '.notice')
     else
       render action: 'edit' 
     end
@@ -45,6 +45,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :deck_id)
+      params.require(:user).permit(:email, :password, :password_confirmation, :deck_id, :locale)
     end
 end

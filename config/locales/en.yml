@@ -1,23 +1,62 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  original_text:   'Original text'
+  translated_text: 'Translated text'
+  deck:            'Deck'
+  avatar:          'Avatar'
+  create_card:     'Create card'
+  edit:            'Edit'
+  check_answer:    'Check answer'
+  date_review:     'Date review'
+  listing_cards:   'Listing cards'
+  delete:          'Delete'
+  new_card:        'New card'
+  deck_name:       'Deck name'
+  listing_decks:   'Listing decks'
+  do_current:      'Do current'
+  new_deck:        'New deck'
+  flashcards:      'Flashcards'
+  create_deck:     'Create deck'
+  train:           'Train'
+  edit_profile:    'Edit profile'
+  update_profile:  'Update'
+  sign_out:        'Sign out'
+  sign_in:         'Sign in'
+  sign_up:         'Sign up'
+  sign_in_with_Github: 'Sign in with Github'
+  password:        'Password'
+  password_confirmation: 'Password confirmation'
+  locale:          'Locale'
+  back:            'Back'
+  listing_users:   'Listing users'
+  new_user:        'New user'
+  users:
+    create:
+      notice: 'Profile create'
+    update:
+      notice: 'Profile update'
+  cards:
+    check:
+      notice1: 'The correct answer!'
+      notice2: 'perhaps you mistyped, the correct answer'
+      alert:   'wrong, the correct answer'
+  user_sessions:
+    create:
+      notice: 'Successful sign in'
+      alert:  'Unsuccessful, try again'
+    destroy:
+      notice: 'You sign out'
+  oauths:
+    callback:
+      notice: 'Logged in from'
+      alert:  'Failed to login from'
+  aplication:
+    not_authenticated:
+      alert: 'Please login first'
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-<h1>Список пользователей</h1>
+<h1><%= t 'listing_users' %></h1>
 
 <table>
   <tr>
@@ -8,15 +8,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'просмотреть',   user                 %></td>
-        <td><%= link_to 'редактировать', edit_user_path(user) %></td>
-        <td><%= link_to 'удалить', user, method: :delete, data:
-             { confirm: 'Уверены?' } %></td>
+        <td><%= link_to t('edit'), edit_user_path(user) %></td>
+        <td><%= link_to t('delete'), user, method: :delete, data:
+             { confirm: 'sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Новый пользователь', new_user_path %>

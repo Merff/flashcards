@@ -6,7 +6,11 @@ class Card < ActiveRecord::Base
 
   validates :original, :translated, :user_id, :deck_id, presence: true
   validate :valid_combo
-  before_create review: DateTime.now
+  before_create :set_default_review
+
+  def set_default_review
+    self.review = DateTime.now
+  end
 
   def valid_combo
     if original.downcase == translated.downcase

@@ -1,24 +1,24 @@
 <p>
-  <strong>Original</strong>
+  <strong><%= t 'original_text' %></strong>
   <%= @card.original %>
 </p>
  
 <p>
-  <strong>Translated</strong>
+  <strong><%= t 'translated_text' %></strong>
   <%= @card.translated %>
 </p>
 
 <p>
-  <strong>Review</strong>
+  <strong><%= t 'date_review' %></strong>
   <%= @card.review %>
 </p>
 
 <p>
-  <strong>Deck</strong>
-  <%= @card.deck_id %>
+  <strong><%= t 'deck' %></strong>
+  <%= @card.deck.name %>
 </p>
 
 <p>
-  <strong>Avatar</strong>
+  <strong><%= t 'avatar' %></strong>
   <%= image_tag @card.avatar_url(:thumb) %>
 </p>

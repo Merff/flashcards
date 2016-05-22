@@ -1,0 +1,54 @@
+ru:
+  original_text:   'Оригинал'
+  translated_text: 'Перевод'
+  deck:            'Колода'
+  avatar:          'Аватарка'
+  create_card:     'Создать карточку'
+  edit:            'Редактировать'
+  check_answer:    'Проверка'
+  date_review:     'Дата пересмотра'
+  listing_cards:   'Список карточек'
+  delete:          'Удалить'
+  new_card:        'Новая карточка'
+  deck_name:       'Название колоды'
+  listing_decks:   'Список колод'
+  do_current:      'Сделать текущей'
+  new_deck:        'Новая колода'
+  flashcards:      'Флешкарточкер'
+  create_deck:     'Создать колоду'
+  train:           'Тренировщик'
+  edit_profile:    'Изменить профиль'
+  update_profile:  'Сохранить'
+  sign_out:        'Выйти'
+  sign_in:         'Войти'
+  sign_up:         'Зарегистрироваться'
+  sign_in_with_Github: 'Войти через Github'
+  password:        'Пароль'
+  password_confirmation: 'Подтверждение пароля'
+  locale:          'Язык'
+  back:            'Назад'
+  listing_users:   'Список пользователей'
+  new_user:        'Новый пользователь'
+  users:
+    create:
+      notice: 'Профиль создан'
+    update:
+      notice: 'Профиль обновлен'
+  cards:
+    check:
+      notice1: 'Верный ответ!'
+      notice2: 'возможно вы опечатались, верно было'
+      alert:   'ошибка, верный ответ'
+  user_sessions:
+    create:
+      notice: 'Успешный вход'
+      alert:  'Не вышло, попробуйте еще'
+    destroy:
+      notice: 'Вы вышли'
+  oauths:
+    callback:
+      notice: 'Вход выполнен через'
+      alert:  'Ошибка входа через'
+  aplication:
+    not_authenticated:
+      alert:  'Войдите или зарегистрируйтесь'
