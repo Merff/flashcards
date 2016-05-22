@@ -11,7 +11,7 @@
       <td><%= link_to t('edit'), edit_deck_path(deck) %></td>
       <td><%= link_to t('delete'),  deck_path(deck),
               method: :delete %></td>
-      <td><%= link_to t('do_current'), current_deck_deck_path(deck) %></td>   
+      <td><%= link_to t('do_current'), current_deck_deck_path(deck), method: :post %></td> 
       </td>
     </tr>
 

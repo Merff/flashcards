@@ -6,7 +6,6 @@ Flashcards::Application.routes.draw do
   resources :cards
   resources :user_sessions
   resources :decks do
-    get  'current_deck', on: :member
     post 'current_deck', on: :member
   end
 
