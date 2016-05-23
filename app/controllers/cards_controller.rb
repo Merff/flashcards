@@ -12,11 +12,11 @@ class CardsController < ApplicationController
   def check
     @card = current_user.cards.find_by(id: params[:card_id])
     @card.check_translation(params[:answer])
-    if $Q == 4
+    if @card.quality == 4
       flash[:notice] = (t '.notice1')
-    elsif $Q == 3
+    elsif @card.quality == 3
       flash[:notice] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
-    else $Q == 2
+    else @card.quality == 2
       flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
     end 
     redirect_to :back                      
@@ -58,6 +58,7 @@ class CardsController < ApplicationController
 
     def card_params
       params.require(:card).permit(:original, :translated, :review, 
-      :avatar, :remove_avatar, :deck_id, :repeat, :efactor, :interval)
+      :avatar, :remove_avatar, :deck_id, :repeat, :efactor, :interval,
+      :quality)
     end
 end
