@@ -58,7 +58,6 @@ class CardsController < ApplicationController
 
     def card_params
       params.require(:card).permit(:original, :translated, :review, 
-      :avatar, :remove_avatar, :deck_id, :repeat, :efactor, :interval,
-      :quality)
+      :avatar, :remove_avatar, :deck_id)
     end
 end

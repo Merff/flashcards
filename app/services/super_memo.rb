@@ -36,13 +36,8 @@ class SuperMemo
     efactor + (0.1-(5-quality))*(0.08+(5-quality)*0.02)
     [1.3, efactor].max
   end
-
+  
   def self.set_interval(review)
     review - DateTime.now
   end
 end
-
-
-             
-    
-  
