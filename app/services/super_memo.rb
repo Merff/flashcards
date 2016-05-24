@@ -4,15 +4,8 @@ class SuperMemo
     quality  = set_quality(answer, original)
     efactor  = set_efactor(efactor, quality)
     repeat   = quality < 3 ? 1 : repeat + 1
-    interval = set_interval(review)
-    review   = DateTime.now + 
-      if repeat == 1
-        1
-      elsif repeat == 2
-        6
-      else
-        interval*efactor
-      end
+    interval = set_interval(interval, repeat, efactor)
+    review   = DateTime.now + interval
     { 
      quality:  quality,
      efactor:  efactor, 
@@ -37,7 +30,13 @@ class SuperMemo
     [1.3, efactor].max
   end
   
-  def self.set_interval(review)
-    review - DateTime.now
+  def self.set_interval(interval, repeat, efactor)
+    if repeat == 1
+      1
+    elsif repeat == 2
+      6
+    else
+      interval*efactor
+    end
   end
 end
