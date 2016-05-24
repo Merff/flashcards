@@ -13,6 +13,8 @@ gem 'damerau-levenshtein', '~> 1.0.3'
 gem 'whenever', require: false
 gem 'http_accept_language'
 gem 'poltergeist'
+gem 'rollbar'
+gem 'newrelic_rpm'
 
 
 # Use SCSS for stylesheets
