@@ -14,7 +14,6 @@ gem 'whenever', require: false
 gem 'http_accept_language'
 gem 'poltergeist'
 gem 'rollbar'
-gem 'newrelic_rpm'
 
 
 # Use SCSS for stylesheets
@@ -52,6 +51,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
 end
 
 # Use ActiveModel has_secure_password
