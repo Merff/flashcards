@@ -11,16 +11,17 @@ class CardsController < ApplicationController
 
   def check
     @card = current_user.cards.find_by(id: params[:card_id])
-    if @card.check_translation(params[:answer])
-      redirect_to :back, notice: (t '.notice1')
-    else
-      if @card.check_levenshtein(params[:answer])
-        redirect_to :back, notice: "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
-      else
-        redirect_to :back, alert: "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
-      end                            
-    end
+    @card.check_translation(params[:answer])
+    if @card.quality == 4
+      flash[:notice] = (t '.notice1')
+    elsif @card.quality == 3
+      flash[:notice] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
+    else @card.quality == 2
+      flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
+    end 
+    redirect_to :back                      
   end
+
   def index
     @cards = current_user.cards
   end
@@ -57,6 +58,6 @@ class CardsController < ApplicationController
 
     def card_params
       params.require(:card).permit(:original, :translated, :review, 
-                     :avatar, :remove_avatar, :deck_id, :true_answers, :try)
+      :avatar, :remove_avatar, :deck_id)
     end
 end

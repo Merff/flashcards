@@ -5,56 +5,53 @@ describe Card do
   let!(:deck) { create(:deck, user: user) }
   let!(:card) { create(:card, user: user, deck: deck) }
 
-  it "answer right/false" do
-    expect(card.check_translation("star")).to be true
-    expect(card.check_translation("space")).to be false
-  end
-
   it "random card in home page" do
     expect(Card.random_card.nil?).to be false
   end
 
   it "set review when create card" do
-    expect(card.review).to eq(DateTime.now.to_date)
+    expect(card.review).to eq(Date.current)
   end
 
-  it "when have 1 true answer, review after 12 hours" do
+  it "when have 1 succesful repeat, review tomorrow" do
     card.check_translation("star")
-    expect(card.review).to eq((DateTime.now + 12.hours).to_date)
+    expect(card.review).to eq(Date.current + 1.day)
   end
 
-  it "when have 2 true answers, review after 3 days" do
+  it "when have 2 succesful repeats, review after 6 days" do
     2.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 3.days)
+    expect(card.review).to eq(Date.current + 6.day)
   end
 
-  it "when have 3 true answers, review after 1 week" do
+  it "when have 3 succesful repeats, review after 14 days" do
     3.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 1.week)
+    expect(card.review).to eq(Date.current + 14.day)
   end
 
-  it "when have 4 true answers, review after 2 weeks" do
+  it "when have 4 succesful repeats, review after 34 days" do
     4.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 2.week)
+    expect(card.review).to eq(Date.current + 34.day)
   end
 
-  it "when have 5 true answers, review after 1 month" do
-    5.times do card.check_translation("star") end
-    expect(card.review).to eq(DateTime.now.to_date + 1.month)
-  end
-
-  it "when have 1 false answer, review not changes" do
+  it "when have false repeat, review tomorrow" do
     card.check_translation("space")
-    expect(card.review).to eq(DateTime.now.to_date)
+    expect(card.review).to eq(Date.current + 1.day)
   end
 
-  it "when have 2 false answer, review not changes" do
+  it "when have 2 false repeats, review tomorrow" do
     2.times do card.check_translation("space") end
-    expect(card.review).to eq(DateTime.now.to_date)
+    expect(card.review).to eq(Date.current + 1.day)
   end
 
-  it "when have 3 false answer, review after 12 hours" do
-    3.times do card.check_translation("space") end
-    expect(card.review).to eq((DateTime.now + 12.hours).to_date)
-  end 
+  it "when have typo in 3 repeat, review after 14 days" do
+    2.times do card.check_translation("star") end
+    card.check_translation("stra")
+    expect(card.review).to eq(Date.current + 14.day)
+  end
+
+  it "when have typo in 4 repeat, review after 34 days" do
+    3.times do card.check_translation("star") end
+    card.check_translation("stra")
+    expect(card.review).to eq(Date.current + 34.day)
+  end  
 end
