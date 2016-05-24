@@ -24,16 +24,8 @@ class Card < ActiveRecord::Base
   end
 
   def check_translation(answer)
-    update_params = SuperMemo.execute(original, answer, efactor, repeat, interval, quality)
-    review = DateTime.now + 
-      if repeat == 1
-        1
-      elsif repeat == 2
-        6
-      else
-        interval*efactor
-      end
-    update_attributes(review: review)
+    update_params = SuperMemo.execute(review, original, answer, efactor, repeat, interval, quality)
+    update(update_params)
   end
   
   def notify_train_card

@@ -6,7 +6,7 @@ FactoryGirl.define do
     review     DateTime.now
     deck
     user
-    repeat   1
+    repeat   0
     efactor  2.5 
     interval 0
   end
