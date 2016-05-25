@@ -28,9 +28,9 @@ describe Card do
     expect(card.review).to eq(Date.current + 15.day)
   end
 
-  it "when have 4 succesful repeats, review after 38 days" do
+  it "when have 4 succesful repeats, review after 39 days" do
     4.times do card.check_translation("star") end
-    expect(card.review).to eq(Date.current + 38.day)
+    expect(card.review).to eq(Date.current + 39.day)
   end
 
   it "when have false repeat, review tomorrow" do
@@ -49,9 +49,9 @@ describe Card do
     expect(card.review).to eq(Date.current + 15.day)
   end
 
-  it "when have typo in 4 repeat, review after 38 days" do
+  it "when have typo in 4 repeat, review after 39 days" do
     3.times do card.check_translation("star") end
     card.check_translation("stra")
-    expect(card.review).to eq(Date.current + 38.day)
+    expect(card.review).to eq(Date.current + 39.day)
   end  
 end

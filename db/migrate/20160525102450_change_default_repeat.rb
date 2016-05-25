@@ -1,5 +1,5 @@
 class ChangeDefaultRepeat < ActiveRecord::Migration
   def change
-    change_column_default :cards, :repeat, from: 1, to: 0
+    change_column_default(:cards, :repeat, 0)
   end
 end
