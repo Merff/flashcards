@@ -7,6 +7,10 @@ class CardsController < ApplicationController
     else
       current_user.cards.random_card
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def check
@@ -19,7 +23,7 @@ class CardsController < ApplicationController
     else @card.quality == 2
       flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
     end 
-    redirect_to :back                      
+    redirect_to :back
   end
 
   def index
