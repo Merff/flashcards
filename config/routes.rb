@@ -1,19 +1,23 @@
 Flashcards::Application.routes.draw do
-  root 'cards#home'
-  post "search" => "cards#check"
+  root 'dashboard/cards#home'
+  post "search" => "dashboard/cards#check"
 
-  resources :users
-  resources :cards
-  resources :user_sessions
-  resources :decks do
-    post 'current_deck', on: :member
+  scope module: 'dashboard' do
+    resources :users, :cards
+    resources :decks do
+      post 'current_deck', on: :member
+    end
   end
 
-  get  'login'  => 'user_sessions#new',     :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  scope module: 'home' do
+    resources :user_sessions
+  end
 
-  get "oauth/callback" => "oauths#callback"
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get  'login'  => 'home/user_sessions#new',     :as => :login
+  post 'logout' => 'home/user_sessions#destroy', :as => :logout
+
+  get "oauth/callback" => "home/oauths#callback"
+  get "oauth/:provider" => "home/oauths#oauth", :as => :auth_at_provider
 
   
 

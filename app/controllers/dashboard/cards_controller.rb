@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Dashboard::CardsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def home
