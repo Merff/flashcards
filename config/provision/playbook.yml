@@ -5,9 +5,9 @@
   # В данном блоке объявляются переменные, которые будут использоваться в playbook и конфигах, представленных выше
   vars:
     # Версия ruby
-    ruby_version: '2.0.0'
+    ruby_version: '2.2.4'
     # Пользователь, от лица которого будет происходит деплой
-    user: 'ubuntu'
+    user: 'deploy'
     # Домашняя директория
     home: '/home/{{ user }}'
     # Директория установки Rbenv
@@ -15,7 +15,7 @@
     # Название приложения
     name: 'flashcards'
     # Путь до нашего приложения
-    application: '{{ home }}/{{ name }}'
+    application: '{{ home }}/applications/{{ name }}'
 
   # Список задач, которые будут выполнены последовательно
   tasks:
@@ -52,14 +52,14 @@
 
     - name: 'account | copy authorized keys'
       # shell - это модуль Ansible, который позволяет выполнять обычные bash команды
-      shell: 'mkdir -p {{ home }}/.ssh -m 700 && cp /root/.ssh/authorized_keys {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
+      shell: 'mkdir -p {{ home }}/.ssh -m 700 && cp /root/.ssh/AmazonKey.pem {{ home }}/.ssh && chown -R {{ user }}:{{ user }} {{ home }}/.ssh'
 
     - name: 'account | copy ssh private key'
       # Модуль copy просто берёт и копирует файл из папки src в папку dest
       copy: 'src=keys/id_rsa dest={{ home }}/.ssh/id_rsa owner={{ user }} group={{ user }} mode=0600'
 
     - name: 'account | copy ssh public key'
-      copy: 'src=keys/id_rsa.pub dest={{ home }}/.ssh/id_rsa.pub owner={{ user }} group={{ user }} mode=0644'
+      copy: 'src=keys/AmazonKey.pem dest={{ home }}/.ssh/AmazonKey.pem owner={{ user }} group={{ user }} mode=0644'
 
     # Устанавливаем ruby-build, rbenv, bundler (шаги взяты из инструкции к установке rbenv)
     - name: 'rbenv | clone repo'
