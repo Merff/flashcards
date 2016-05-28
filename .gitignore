@@ -26,3 +26,4 @@ doc/
 .secret
 .byebug_history
 .env
+/config/provision/keys

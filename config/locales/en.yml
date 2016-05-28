@@ -29,26 +29,28 @@ en:
   back:            'Back'
   listing_users:   'Listing users'
   new_user:        'New user'
-  users:
-    create:
-      notice: 'Profile create'
-    update:
-      notice: 'Profile update'
-  cards:
-    check:
-      notice1: 'The correct answer!'
-      notice2: 'perhaps you mistyped, the correct answer'
-      alert:   'wrong, the correct answer'
-  user_sessions:
-    create:
-      notice: 'Successful sign in'
-      alert:  'Unsuccessful, try again'
-    destroy:
-      notice: 'You sign out'
-  oauths:
-    callback:
-      notice: 'Logged in from'
-      alert:  'Failed to login from'
+  dashboard:
+    users:
+      create:
+        notice: 'Profile create'
+      update:
+        notice: 'Profile update'
+    cards:
+      check:
+        notice1: 'The correct answer!'
+        notice2: 'perhaps you mistyped, the correct answer'
+        alert:   'wrong, the correct answer'
+  home:
+    user_sessions:
+      create:
+        notice: 'Successful sign in'
+        alert:  'Unsuccessful, try again'
+      destroy:
+        notice: 'You sign out'
+    oauths:
+      callback:
+        notice: 'Logged in from'
+        alert:  'Failed to login from'
   aplication:
     not_authenticated:
       alert: 'Please login first'

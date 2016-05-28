@@ -29,26 +29,28 @@ ru:
   back:            'Назад'
   listing_users:   'Список пользователей'
   new_user:        'Новый пользователь'
-  users:
-    create:
-      notice: 'Профиль создан'
-    update:
-      notice: 'Профиль обновлен'
-  cards:
-    check:
-      notice1: 'Верный ответ!'
-      notice2: 'возможно вы опечатались, верно было'
-      alert:   'ошибка, верный ответ'
-  user_sessions:
-    create:
-      notice: 'Успешный вход'
-      alert:  'Не вышло, попробуйте еще'
-    destroy:
-      notice: 'Вы вышли'
-  oauths:
-    callback:
-      notice: 'Вход выполнен через'
-      alert:  'Ошибка входа через'
+  dashboard:
+    users:
+      create:
+        notice: 'Профиль создан'
+      update:
+        notice: 'Профиль обновлен'
+    cards:
+      check:
+        notice1: 'Верный ответ!'
+        notice2: 'возможно вы опечатались, верно было'
+        alert:   'ошибка, верный ответ'
+  home:
+    user_sessions:
+      create:
+        notice: 'Успешный вход'
+        alert:  'Не вышло, попробуйте еще'
+      destroy:
+        notice: 'Вы вышли'
+    oauths:
+      callback:
+        notice: 'Вход выполнен через'
+        alert:  'Ошибка входа через'
   aplication:
     not_authenticated:
       alert:  'Войдите или зарегистрируйтесь'
