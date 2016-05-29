@@ -56,6 +56,8 @@ GEM
       mimemagic (>= 0.3.0)
     chronic (0.10.2)
     cliver (0.3.2)
+    codeclimate-test-reporter (0.5.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -65,6 +67,7 @@ GEM
     coffee-script-source (1.10.0)
     damerau-levenshtein (1.0.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -188,6 +191,11 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simplecov (0.11.2)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sorcery (0.9.1)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -223,6 +231,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.5)
   carrierwave
+  codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   damerau-levenshtein (~> 1.0.3)
   dotenv-rails
@@ -246,4 +255,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

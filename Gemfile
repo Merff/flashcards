@@ -14,6 +14,7 @@ gem 'whenever', require: false
 gem 'http_accept_language'
 gem 'poltergeist'
 gem 'rollbar'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 
 # Use SCSS for stylesheets

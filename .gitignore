@@ -27,3 +27,4 @@ doc/
 .byebug_history
 .env
 /config/provision/keys
+/config/provision/playbook.retry
