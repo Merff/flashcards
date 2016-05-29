@@ -28,3 +28,4 @@ doc/
 .env
 /config/provision/keys
 /config/provision/playbook.retry
+.codeclimate.yml
