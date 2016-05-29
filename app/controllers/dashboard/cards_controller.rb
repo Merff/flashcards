@@ -3,10 +3,10 @@ class Dashboard::CardsController < ApplicationController
 
   def home
     @card = if current_user.deck_id
-      current_user.cards.where(deck_id: current_user.deck_id).random_card
-    else
-      current_user.cards.random_card
-    end
+              current_user.cards.where(deck_id: current_user.deck_id).random_card
+            else
+              current_user.cards.random_card
+            end
     respond_to do |format|
       format.html
       format.js
@@ -20,7 +20,7 @@ class Dashboard::CardsController < ApplicationController
       flash[:notice] = (t '.notice1')
     elsif @card.quality == 3
       flash[:notice] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
-    else @card.quality == 2
+    elsif @card.quality == 2
       flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
     end 
     redirect_to :back
