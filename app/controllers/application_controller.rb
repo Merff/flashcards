@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :require_login 
+  before_action :require_login
   before_filter :set_locale 
   protect_from_forgery with: :exception
 
