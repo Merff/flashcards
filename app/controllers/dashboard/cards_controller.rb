@@ -19,7 +19,7 @@ class Dashboard::CardsController < ApplicationController
     if @card.quality == 4
       flash[:notice] = (t '.notice1')
     elsif @card.quality == 3
-      flash[:notice] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
+      flash[:notice_typo] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
     elsif @card.quality == 2
       flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
     end 

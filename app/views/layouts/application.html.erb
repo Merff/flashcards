@@ -9,43 +9,59 @@
 </head>
 
 <body>
-  <section id="container">
 
-    <header class="clearfix">
-      <h1><%= t :flashcards %></h1>
-      <ul class="navigation-links">
-        <li><%= link_to t('listing_cards'), cards_path  %></li>
-        <li><%= link_to t('listing_decks'), decks_path  %></li>
-        <li><%= link_to t('create_card'), new_card_path %></li>
-        <li><%= link_to t('create_deck'), new_deck_path %></li>
-        <li><%= link_to t('train'),       root_path     %></li>
-        <% unless current_user %>
-        <%= link_to 'en', login_path(locale: 'en') %>
-        <%= link_to 'ru', login_path(locale: 'ru') %>
-        <% end %>
-      </ul>
-    </header>
-
-    <div>
-      <% if current_user %>
-        <%= link_to t('edit_profile'), edit_user_path(current_user.id) %>
-        <%= link_to t('sign_out'), :logout, method: :post %>
-      <% else %>
-        <%= link_to t('sign_up'), new_user_path %> 
-        <%= link_to t('sign_in'), :login %>
-        <%= link_to t('sign_in_with_Github'), auth_at_provider_path(:provider => :github) %>
-      <% end %>
-    </div>
-    <div>
-    <p><%= flash[:notice] %></p>
-    <p><%= flash[:alert]  %></p>
+  <div class="container">
+    <div class="page-header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <% if current_user %>
+            <li role="presentation"><%= link_to t('edit_profile'), edit_user_path(current_user.id) %></li>
+            <li role="presentation"><%= link_to t('sign_out'), :logout, method: :post %></li>
+          <% else %>
+            <li role="presentation"><%= link_to 'en', login_path(locale: 'en') %></li>
+            <li role="presentation"><%= link_to 'ru', login_path(locale: 'ru') %></li>
+            <li role="presentation"><%= link_to t('sign_up'), new_user_path %></li>
+            <li role="presentation"><%= link_to t('sign_in'), :login %></li>
+            <li role="presentation"><%= link_to t('sign_in_with_Github'), auth_at_provider_path(:provider => :github) %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <h2><%= t :flashcards %></h2>
     </div>
 
-    <section>
-      <%= yield %>
-    </section>
+    <div class="row">
+      <div class="col-lg-2">
+        <ul>
+          <li><%= link_to t('listing_cards'), cards_path  %></li>
+          <li><%= link_to t('listing_decks'), decks_path  %></li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <ul>
+          <li><%= link_to t('create_card'), new_card_path %></li>
+          <li><%= link_to t('create_deck'), new_deck_path %></li>
+        </ul>
+      </div>
+    </div>
+    
+    <h3 class="text-center"><%= link_to t('train'), root_path %></h3>
 
-  </section>
+    <p class="text-center bg-success"><%= flash[:notice] %></p>
+    <p class="text-center bg-warning"><%= flash[:alert] %></p>
+
+    <div class="jumbotron">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Made by Merff</p>
+    </div>
+  </footer>
+
 </body>
-
 </html>

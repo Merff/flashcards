@@ -15,6 +15,7 @@ gem 'http_accept_language'
 gem 'poltergeist'
 gem 'rollbar'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'bootstrap-sass'
 
 
 # Use SCSS for stylesheets

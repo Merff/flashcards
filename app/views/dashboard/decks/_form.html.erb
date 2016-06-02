@@ -1,4 +1,4 @@
 <%= simple_form_for @deck do |f| %>
   <%= f.input  :name,   label: t('deck_name') %>
-  <%= f.button :submit, t('create_deck') %>
+  <%= f.button :submit, t('create_deck'), class: "btn btn-warning" %>
 <% end %>

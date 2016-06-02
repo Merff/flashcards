@@ -7,7 +7,7 @@ class Home::UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:users, notice: (t '.notice'))
+      redirect_back_or_to(root_path, notice: (t '.notice'))
     else
       flash.now[:alert] = (t '.alert')
       render action: 'new'

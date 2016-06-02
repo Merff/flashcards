@@ -1,12 +1,14 @@
-<% if @card %>
-  <%= @card.translated %>
-  <%= form_tag search_path, remote: true do %>
-    <%= hidden_field_tag(:card_id, @card.id) %>
-    <%= label_tag      t('translated_text') %>
-    <%= text_field_tag   :answer %>
-    <%= submit_tag     t('check_answer') %>
+<div class="text-center">
+  <% if @card %>
+    <h2><%= @card.translated %></h2>
+    <p><%= image_tag @card.avatar_url  %></p>
+    <%= form_tag search_path, remote: true do %>
+      <%= hidden_field_tag(:card_id, @card.id) %>
+      <%= text_field_tag   :answer %>
+      <%= submit_tag t('check_answer'), class: "btn btn-warning" %>
     <% end %>
-  <p><%= image_tag @card.avatar_url  %></p>
-<% end %>
-<p><%= flash[:notice] %></p>
-<p><%= flash[:alert]  %></p>
+  <% end %>
+  <p class="text-success"><%= flash[:notice] %></p>
+  <p class="text-warning"><%= flash[:notice_typo] %></p>
+  <p class="text-danger"><%= flash[:alert]  %></p>
+</div>
