@@ -26,7 +26,7 @@
           <% end %>
         </ul>
       </nav>
-      <h2><%= t :flashcards %></h2>
+      <h2 class="text-muted"><%= t :flashcards %></h2>
     </div>
 
     <div class="row">
@@ -46,8 +46,8 @@
     
     <h3 class="text-center"><%= link_to t('train'), root_path %></h3>
 
-    <p class="text-center bg-success"><%= flash[:notice] %></p>
-    <p class="text-center bg-warning"><%= flash[:alert] %></p>
+    <p class="text-center text-success"><%= flash[:notice] %></p>
+    <p class="text-center text-warning"><%= flash[:alert] %></p>
 
     <div class="jumbotron">
       <div class="container">

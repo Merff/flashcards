@@ -26,7 +26,6 @@ ru:
   password:        'Пароль'
   password_confirmation: 'Подтверждение пароля'
   locale:          'Язык'
-  back:            'Назад'
   listing_users:   'Список пользователей'
   new_user:        'Новый пользователь'
   dashboard:
@@ -51,6 +50,6 @@ ru:
       callback:
         notice: 'Вход выполнен через'
         alert:  'Ошибка входа через'
-  aplication:
+  application:
     not_authenticated:
       alert:  'Войдите или зарегистрируйтесь'

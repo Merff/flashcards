@@ -1,6 +1,6 @@
 <div class="text-center">
   <% if @card %>
-    <h2><%= @card.translated %></h2>
+    <h2 class="text-muted"><%= @card.translated %></h2>
     <p><%= image_tag @card.avatar_url  %></p>
     <%= form_tag search_path, remote: true do %>
       <%= hidden_field_tag(:card_id, @card.id) %>
@@ -8,7 +8,7 @@
       <%= submit_tag t('check_answer'), class: "btn btn-warning" %>
     <% end %>
   <% end %>
-  <p class="text-success"><%= flash[:notice] %></p>
+  <p class="text-success"><%= flash[:notice_true] %></p>
   <p class="text-warning"><%= flash[:notice_typo] %></p>
-  <p class="text-danger"><%= flash[:alert]  %></p>
+  <p class="text-danger"><%= flash[:notice_false]  %></p>
 </div>

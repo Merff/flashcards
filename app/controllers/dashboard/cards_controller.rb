@@ -17,11 +17,11 @@ class Dashboard::CardsController < ApplicationController
     @card = current_user.cards.find_by(id: params[:card_id])
     @card.check_translation(params[:answer])
     if @card.quality == 4
-      flash[:notice] = (t '.notice1')
+      flash[:notice_true] = (t '.notice1')
     elsif @card.quality == 3
       flash[:notice_typo] = "#{params[:answer]} - #{t('.notice2')} [#{@card.original} - #{@card.translated}]"
     elsif @card.quality == 2
-      flash[:alert]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
+      flash[:notice_false]  = "#{params[:answer]} - #{t('.alert')} [#{@card.original} - #{@card.translated}]"
     end 
     redirect_to :back
   end

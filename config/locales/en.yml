@@ -26,7 +26,6 @@ en:
   password:        'Password'
   password_confirmation: 'Password confirmation'
   locale:          'Locale'
-  back:            'Back'
   listing_users:   'Listing users'
   new_user:        'New user'
   dashboard:
@@ -51,7 +50,7 @@ en:
       callback:
         notice: 'Logged in from'
         alert:  'Failed to login from'
-  aplication:
+  application:
     not_authenticated:
       alert: 'Please login first'
 
